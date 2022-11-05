@@ -1,25 +1,36 @@
-import logo from './logo.svg';
+import React  from "react"
 import './App.css';
 
+import { useState } from "react";
+
+
+
+
+
+
+
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+const [userName, setUsername] = useState('');
+const [password, setPassword] = useState('') ;
+
+function Handleinput (e){
+  e.preventDefault();
+  alert(`Username: ${userName}  Password : ${password}`)
+}
+
+  return <form onSubmit={Handleinput} >
+    
+  <label htmlFor="Username">Email</label><br />
+  <input type="text" name="username" id="username" placeholder="Email" onChange={e => setUsername(e.target.value)} />
+  <br />
+  <label htmlFor="Password">Password</label><br />
+  <input  type="password"  name="password" id="password" placeholder="Password"  onChange={e => setPassword(e.target.value)}/> <br></br>
+  <button className="btn">Sumbit</button>
+</form>
+
+    
+  
 }
 
 export default App;
